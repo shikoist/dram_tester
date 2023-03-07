@@ -13,8 +13,10 @@
 
 #define ADDRESS_LENGTH 9
 #define DATA_LENGTH 16
-#define MAX_ROWS 511
-#define MAX_COLUMNS 511
+//#define MAX_ROWS 511
+//#define MAX_COLUMNS 511
+#define MAX_ROWS 4
+#define MAX_COLUMNS 4
 
 const int adr_pins[ADDRESS_LENGTH] = {25, 24, 23, 22, 21, 20, 19, 18, 17}; // ARDUINO PINS 
 //const int data_pins[DATA_LENGTH] = {35, 34, 33, 32, 31, 30, 29, 28, 0, 1, 2, 3, 4, 5, 6, 7};  // ARDUINO PINS 
@@ -258,6 +260,9 @@ void fill()
     {
       Serial.println("Read " + String(aReadValues[i]) + " should be " + String(aTestValues[i]));
     }
+    errors = 1;
+    stage = STAGE_RESULT;
+    return;
   }
   else 
   {
